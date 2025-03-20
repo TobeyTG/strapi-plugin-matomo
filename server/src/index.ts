@@ -8,7 +8,6 @@ import register from './register';
 /**
  * Plugin server methods
  */
-import config from './config';
 import contentTypes from './content-types';
 import controllers from './controllers';
 import middlewares from './middlewares';
@@ -20,7 +19,6 @@ export default {
   register,
   bootstrap,
   destroy,
-  config,
   controllers,
   routes,
   services,
