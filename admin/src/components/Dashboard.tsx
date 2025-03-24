@@ -26,7 +26,6 @@ const Dashboard = () => {
         width="100%"
         height="100%"
         loading="lazy"
-        scrolling="no"
         frameBorder="0"
         style={{ height: 'calc(100vh - 2px)', width: '100%' }}
       ></iframe>
