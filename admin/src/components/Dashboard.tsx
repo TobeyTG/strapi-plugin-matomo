@@ -14,7 +14,6 @@ const Dashboard = () => {
     (async () => {
       const res = await get(`/${PLUGIN_ID}/config`);
       const config: Config = res.data;
-      console.log(config.config);
       setUrl(config.config.widgetURL);
     })();
   }, []);

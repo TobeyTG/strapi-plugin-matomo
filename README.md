@@ -1,5 +1,5 @@
 <div align="center" width="150px">
-  <img style="width: 150px; height: auto;" src="public/assets/logo.png" alt="Logo - Strapi Matomo plugin" />
+  <img style="width: 150px; height: auto;" src="https://raw.githubusercontent.com/TobeyTG/strapi-plugin-matomo/master/assets/logo.png" alt="Logo - Strapi Matomo plugin" />
 </div>
 <div align="center">
   <h1>Strapi v5 - Matomo plugin</h1>
