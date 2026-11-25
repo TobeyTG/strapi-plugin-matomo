@@ -42,7 +42,7 @@
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.30.0",
     "styled-components": "^6.1.15",
-    "typescript": "^5.9.3"
+    "typescript": "^7.0.2"
   },
   "peerDependencies": {
     "@strapi/strapi": "^5.11.1",
