@@ -12,9 +12,8 @@ const Dashboard = () => {
 
   useEffect(() => {
     (async () => {
-      const res = await get(`/${PLUGIN_ID}/config`);
-      const config: Config = res.data;
-      setUrl(config.config.widgetURL);
+      const { data } = await get<Config>(`/${PLUGIN_ID}/config`);
+      setUrl(data.config.widgetURL);
     })();
   }, []);
 
