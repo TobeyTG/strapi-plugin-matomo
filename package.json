@@ -28,7 +28,8 @@
     "watch:link": "strapi-plugin watch:link",
     "verify": "strapi-plugin verify",
     "test:ts:front": "run -T tsc -p admin/tsconfig.json",
-    "test:ts:back": "run -T tsc -p server/tsconfig.json"
+    "test:ts:back": "run -T tsc -p server/tsconfig.json",
+    "prepublishOnly": "npm run build && npm run verify"
   },
   "devDependencies": {
     "@strapi/sdk-plugin": "^6.1.1",
@@ -59,5 +60,9 @@
   "name": "strapi-plugin-matomo",
   "description": "Add your Matomo analytics dahsboard to Strapi.",
   "license": "MIT",
-  "author": "Tobias Blättermann <tobias.blaettermann1@gmail.com>"
+  "author": "Tobias Blättermann <tobias.blaettermann1@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobeyTG/strapi-plugin-matomo.git"
+  }
 }

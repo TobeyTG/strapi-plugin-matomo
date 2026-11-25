@@ -1,0 +1,42 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write # GitHub release
+  id-token: write # npm trusted publishing + provenance
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24 # npm >= 11.5 needed for trusted publishing
+          registry-url: "https://registry.npmjs.org"
+
+      - run: npm ci
+
+      # prepublishOnly runs build + verify
+      - run: npm publish --provenance
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          body: |
+            ## 📦 Install from npm
+
+            ```bash
+            npm install strapi-plugin-matomo@${{ steps.get_version.outputs.VERSION }}
+            ```
+
+            [View on npm](https://www.npmjs.com/package/strapi-plugin-matomo/v/${{ steps.get_version.outputs.VERSION }})
