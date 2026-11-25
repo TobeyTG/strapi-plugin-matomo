@@ -6,8 +6,8 @@ on:
       - "v*"
 
 permissions:
-  contents: write # GitHub release
-  id-token: write # npm trusted publishing + provenance
+  contents: write
+  id-token: write
 
 jobs:
   release:
