@@ -20,14 +20,18 @@ jobs:
           node-version: 24 # npm >= 11.5 needed for trusted publishing
           registry-url: "https://registry.npmjs.org"
 
+      - name: Check tag matches package.json version
+        id: get_version
+        run: |
+          VERSION="${GITHUB_REF#refs/tags/v}"
+          PKG="$(node -p "require('./package.json').version")"
+          [ "$VERSION" = "$PKG" ] || { echo "::error::tag v$VERSION != package.json $PKG"; exit 1; }
+          echo "VERSION=$VERSION" >> $GITHUB_OUTPUT
+
       - run: npm ci
 
       # prepublishOnly runs build + verify
       - run: npm publish --provenance
-
-      - name: Get version from tag
-        id: get_version
-        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
 
       - uses: softprops/action-gh-release@v2
         with:
